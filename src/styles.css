@@ -1,0 +1,98 @@
+/* styles.css — dark/premium, amber accent, IBM Plex: same visual language
+   as THESIS and jeremyxiang.com so the three sites read as one brand. */
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg: #0c0d10;
+  --panel: #14161a;
+  --border: #24272e;
+  --text: #d7dae0;
+  --muted: #8b8f98;
+  --accent: #f0b429;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { max-width: 1060px; margin: 0 auto; padding: 64px 24px 48px; }
+
+/* hero */
+.kicker {
+  color: var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+h1 { font-size: clamp(32px, 5.5vw, 54px); line-height: 1.08; font-weight: 700; letter-spacing: -0.02em; }
+
+.sub { color: var(--muted); max-width: 560px; margin-top: 16px; font-size: 16px; line-height: 1.6; }
+
+.flap-demo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  font-size: 22px;
+}
+.flap-label { font-family: "IBM Plex Mono", monospace; color: var(--muted); font-size: 14px; }
+.flap-note { color: #55585f; font-size: 12px; }
+
+.hero-links { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn-solid { background: var(--accent); border-color: var(--accent); color: #131313; font-weight: 600; }
+.btn-solid:hover { filter: brightness(1.08); color: #131313; }
+
+/* project grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 64px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+.card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.card h2 { font-family: "IBM Plex Mono", monospace; font-size: 15px; color: var(--accent); font-weight: 600; }
+.tag { color: var(--muted); font-size: 11px; white-space: nowrap; }
+
+.blurb { color: var(--text); font-size: 13.5px; line-height: 1.6; }
+.highlight { color: var(--muted); font-size: 12.5px; line-height: 1.55; border-left: 2px solid var(--border); padding-left: 10px; }
+
+.card-cta { margin-top: auto; color: var(--accent); font-size: 13px; font-weight: 500; }
+
+footer { margin-top: 56px; color: #55585f; font-size: 12.5px; text-align: center; }
+footer code { font-family: "IBM Plex Mono", monospace; color: var(--muted); }
