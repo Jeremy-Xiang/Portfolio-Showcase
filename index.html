@@ -2,11 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Jeremy Xiang — six tested, documented quant & systems projects: forecasting, factor research, AI agents, screening pipelines, RAG, clustering." />
     <title>Jeremy Xiang — Project Portfolio</title>
+    <link rel="canonical" href="https://projects.jeremyxiang.com/" />
+    <meta name="author" content="Jeremy Xiang" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jeremy Xiang — Project Portfolio" />
+    <meta property="og:description" content="Six tested, documented quant & systems projects: forecasting, factor research, AI agents, screening pipelines, RAG, clustering." />
+    <meta property="og:url" content="https://projects.jeremyxiang.com/" />
+    <meta property="og:image" content="https://projects.jeremyxiang.com/projects-og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Jeremy Xiang — six quant & systems projects" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jeremy Xiang — Project Portfolio" />
+    <meta name="twitter:image" content="https://projects.jeremyxiang.com/projects-og.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Jeremy Xiang — Project Portfolio",
+      "url": "https://projects.jeremyxiang.com/",
+      "author": { "@type": "Person", "name": "Jeremy Xiang", "url": "https://jeremyxiang.com/" },
+      "hasPart": [
+        { "@type": "SoftwareSourceCode", "name": "stock-forecast-bench", "codeRepository": "https://github.com/Jeremy-Xiang/stock-forecast-bench" },
+        { "@type": "SoftwareSourceCode", "name": "alpha-factor-pipeline", "codeRepository": "https://github.com/Jeremy-Xiang/alpha-factor-pipeline" },
+        { "@type": "SoftwareSourceCode", "name": "multi-agent-analyst", "codeRepository": "https://github.com/Jeremy-Xiang/multi-agent-analyst" },
+        { "@type": "SoftwareSourceCode", "name": "screener-alerts", "codeRepository": "https://github.com/Jeremy-Xiang/screener-alerts" },
+        { "@type": "SoftwareSourceCode", "name": "filings-assistant", "codeRepository": "https://github.com/Jeremy-Xiang/filings-assistant" },
+        { "@type": "SoftwareSourceCode", "name": "ticker-clustering", "codeRepository": "https://github.com/Jeremy-Xiang/ticker-clustering" }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <div id="static-fallback" style="font-family:ui-monospace,monospace;max-width:640px;margin:4rem auto;padding:0 1.5rem;line-height:1.7">
+      <h1 style="font-size:1.6rem">Jeremy Xiang — Project Portfolio</h1>
+      <p>Six tested, documented quant &amp; systems projects by
+      <a href="https://jeremyxiang.com/">Jeremy Xiang</a>, CS + Economics at UW–Madison.</p>
+      <ul>
+        <li><a href="https://github.com/Jeremy-Xiang/stock-forecast-bench">stock-forecast-bench</a> — four OHLC forecasting models under strict walk-forward evaluation</li>
+        <li><a href="https://github.com/Jeremy-Xiang/alpha-factor-pipeline">alpha-factor-pipeline</a> — 17-factor alpha research pipeline with long-short backtest</li>
+        <li><a href="https://github.com/Jeremy-Xiang/multi-agent-analyst">multi-agent-analyst</a> — supervisor agent over three isolated subagents (Anthropic API)</li>
+        <li><a href="https://github.com/Jeremy-Xiang/screener-alerts">screener-alerts</a> — six event-semantics screening rules with pluggable notifiers</li>
+        <li><a href="https://github.com/Jeremy-Xiang/filings-assistant">filings-assistant</a> — citation-grounded RAG over financial filings</li>
+        <li><a href="https://github.com/Jeremy-Xiang/ticker-clustering">ticker-clustering</a> — clusters tickers by behavior, not sector label</li>
+      </ul>
+      <p>Related: <a href="https://thesis.jeremyxiang.com/">Thesis</a> ·
+      <a href="https://lab.jeremyxiang.com/">The Layering Lab</a></p>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
