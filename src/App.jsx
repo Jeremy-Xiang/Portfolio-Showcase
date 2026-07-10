@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SplitFlap from "./SplitFlap";
+import TapeField from "./TapeField";
 import "./styles.css";
 
 // ── Edit these two lines after publishing your repos ────────────────────────
@@ -63,12 +64,36 @@ function useTickerDemo() {
   return seq[i];
 }
 
+// Reveal-on-scroll: adds .in to observed elements the first time they enter view.
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+    const els = root.querySelectorAll("[data-reveal]");
+    const io = new IntersectionObserver(
+      (es) =>
+        es.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }),
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+  return ref;
+}
+
 export default function App() {
   const demoPrice = useTickerDemo();
+  const pageRef = useReveal();
 
   return (
-    <div className="page">
+    <div className="page" ref={pageRef}>
       <header className="hero">
+        <TapeField />
         <p className="kicker">Jeremy Xiang · Quant &amp; Systems Portfolio</p>
         <h1>
           Six finance systems.
@@ -97,22 +122,30 @@ export default function App() {
         </div>
       </header>
 
+      <div className="sechead" data-reveal>
+        <h2 className="sechead-title">The six systems</h2>
+        <span className="sechead-note">every card links to its repo · every repo runs offline</span>
+      </div>
+
       <main className="grid">
-        {PROJECTS.map((p) => (
+        {PROJECTS.map((p, i) => (
           <a
             key={p.name}
             className="card"
+            data-reveal
+            style={{ "--d": `${(i % 3) * 70}ms` }}
             href={`https://github.com/${GITHUB_USER}/${p.name}`}
             target="_blank"
             rel="noreferrer"
           >
+            <span className="idx" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
             <div className="card-top">
               <h2>{p.name}</h2>
               <span className="tag">{p.tag}</span>
             </div>
             <p className="blurb">{p.blurb}</p>
             <p className="highlight">→ {p.highlight}</p>
-            <span className="card-cta">View repo ↗</span>
+            <span className="card-cta">View repo <span className="cta-arrow">↗</span></span>
           </a>
         ))}
       </main>
